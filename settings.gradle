@@ -1,3 +1,5 @@
 rootProject.name = 'learning'
 include 'javaLearning'
+include 'javaLearning'
+include 'javaWebLearning'
 
