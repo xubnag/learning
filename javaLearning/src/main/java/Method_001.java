@@ -1,7 +1,3 @@
-package com.xubang.java.method;
-
-import java.io.File;
-
 /**
  * @author XuBang
  * @version 1.0
@@ -14,7 +10,7 @@ import java.io.File;
  *     - 形参数量相同时，形参的数据类型不同
  *     - 形参数量和数据类型都相同时，形参的数据类型的顺序不同
  */
-public class Method {
+public class Method_001 {
     public static void main(String[] args) {
         System.out.println(add(10,20,30,40,50));
 
