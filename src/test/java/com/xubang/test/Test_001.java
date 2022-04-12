@@ -3,8 +3,6 @@ package com.xubang.test;
 import com.alibaba.schedulerx.common.util.JsonUtil;
 import com.xubang.model.Employee;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
