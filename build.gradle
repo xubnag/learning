@@ -25,6 +25,13 @@ dependencies {
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation group: 'com.alibaba', name: 'fastjson', version: '1.2.75'
+
+//    用于解析JavaBean对象
+    implementation group: 'com.aliyun.schedulerx', name: 'schedulerx2-worker', version: '1.4.0'
+
+
 }
 
 tasks.named('test') {

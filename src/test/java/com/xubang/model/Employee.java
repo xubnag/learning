@@ -12,6 +12,7 @@ public class Employee {
     private String name;
     private Integer age;
     private Status status;
+    private Integer wages;
 
     public Employee() {
     }
@@ -20,6 +21,21 @@ public class Employee {
         this.name = name;
         this.age = age;
         this.status = status;
+    }
+
+    public Employee(String name, Integer age, Status status, Integer wages) {
+        this.name = name;
+        this.age = age;
+        this.status = status;
+        this.wages = wages;
+    }
+
+    public Integer getWages() {
+        return wages;
+    }
+
+    public void setWages(Integer wages) {
+        this.wages = wages;
     }
 
     public String getName() {
