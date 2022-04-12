@@ -50,6 +50,5 @@ public class StreamActualCombat_001 {
         }
         System.out.println("-----------"+newEmployees);
         System.out.println("-----------"+ JsonUtil.toJson(newEmployees));
-
     }
 }
