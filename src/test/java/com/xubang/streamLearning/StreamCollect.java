@@ -58,6 +58,9 @@ public class StreamCollect {
 
     }
 
+    /**
+     * 统计List<model对象>中元素总数、单一元素的平均值、元素某一属性最大值/最小值（获取对象   /   该对象的最大值或者最小值）
+     */
     @Test
     public void testOthers() {
         System.out.println("-----个数总数-----");
@@ -79,7 +82,10 @@ public class StreamCollect {
         Optional<Employee> maxBy = employees.stream()
                 .collect(Collectors.maxBy((x, y) -> Double.compare(x.getAge(), y.getAge())));
         System.out.println(maxBy.get());
-
+        Optional<Integer> collect = employees.stream()
+                .map(Employee::getAge)
+                .collect(Collectors.maxBy(Integer::compare));
+        System.out.println(collect.get());
 
         System.out.println("-----最小值：minBy-----");
         Optional<Employee> minBy = employees.stream()
@@ -89,13 +95,11 @@ public class StreamCollect {
         Optional<Integer> minCollect = employees.stream()
                 .map(Employee::getAge)
                 .collect(Collectors.minBy(Integer::compare));
-        System.out.println(minCollect);
-
-
+        System.out.println(minCollect.get());
     }
 
     /**
-     * 分组&多级分组
+     * List<model对象>根据某一属性进行分组/多级分组
      */
     @Test
     public void testGroup(){
@@ -131,22 +135,21 @@ public class StreamCollect {
      */
     @Test
     public void testPartition(){
-        //分片处理
+        //分片处理：根据某一元素，对model对象进行分组
         Map<Boolean, List<Employee>> collect = employees.stream()
                 .collect(Collectors.partitioningBy(e -> e.getAge() > 20));
         System.out.println(collect);
+        System.out.println("----"+collect.get(true));
 
-        //字符串连接
+        //字符串连接：提取某一元素，进行字符串拼接
         String connectionCollect = employees.stream()
                 .map(Employee::getName)
                 .collect(Collectors.joining(","));
         System.out.println(connectionCollect);
 
-        //统计
+        //统计某一元素的：平均值、总值、最小值、最大值、总数
         DoubleSummaryStatistics doubleSummaryStatistics = employees.stream()
                 .collect(Collectors.summarizingDouble(Employee::getAge));
         System.out.println(doubleSummaryStatistics);
     }
-
-
 }

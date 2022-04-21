@@ -3,7 +3,6 @@ package com.xubang.streamLearning;
 import com.alibaba.schedulerx.common.util.JsonUtil;
 import com.xubang.model.Employee;
 import com.xubang.model.NewEmployee;
-import net.minidev.json.JSONUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -35,10 +34,11 @@ public class StreamActualCombat_001 {
     @Test
     public void test001() {
         //流处理
-        List<NewEmployee> collect = employees.stream().map(result -> new NewEmployee(result.getName(), result.getAge().longValue()))
+        List<NewEmployee> collect = employees.stream()
+                .map(result -> new NewEmployee(result.getName(), result.getAge().longValue()))
                 .collect(Collectors.toList());
-        System.out.println("***********"+collect);
-        System.out.println("***********"+JsonUtil.toJson(collect));
+        System.out.println("***********" + collect);
+        System.out.println("***********" + JsonUtil.toJson(collect));
 
         //普通方法
         List<NewEmployee> newEmployees = new ArrayList<>();
@@ -48,7 +48,7 @@ public class StreamActualCombat_001 {
             newEmployee.setAge(employee.getAge().longValue());
             newEmployees.add(newEmployee);
         }
-        System.out.println("-----------"+newEmployees);
-        System.out.println("-----------"+ JsonUtil.toJson(newEmployees));
+        System.out.println("-----------" + newEmployees);
+        System.out.println("-----------" + JsonUtil.toJson(newEmployees));
     }
 }

@@ -50,12 +50,4 @@ public class Stream_001 {
         }
         System.out.println(stringList);
     }
-
-    /**
-     * Stream基本操作
-     */
-    @Test
-    public void test_003(){
-
-    }
 }
