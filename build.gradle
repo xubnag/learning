@@ -31,6 +31,10 @@ dependencies {
 //    用于解析JavaBean对象
     implementation group: 'com.aliyun.schedulerx', name: 'schedulerx2-worker', version: '1.4.0'
 
+    //字符串处理神器
+// https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
+
 
 }
 

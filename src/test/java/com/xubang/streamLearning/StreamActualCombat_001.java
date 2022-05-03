@@ -6,10 +6,11 @@ import com.xubang.model.NewEmployee;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.collectingAndThen;
+import static java.util.stream.Collectors.toCollection;
 
 /**
  * @author XuBang
@@ -51,4 +52,32 @@ public class StreamActualCombat_001 {
         System.out.println("-----------" + newEmployees);
         System.out.println("-----------" + JsonUtil.toJson(newEmployees));
     }
+
+    /**
+     * List<model> 根据某一属性 去重
+     */
+    @Test
+    public void test002() {
+        List<Employee> employeeList = employees.stream().collect(
+                collectingAndThen(
+                        toCollection(() -> new TreeSet<>(Comparator.comparing(Employee::getName))), ArrayList::new));
+
+        System.out.println("非去重" + JsonUtil.toJson(employees));
+        System.out.println("去重：" + JsonUtil.toJson(employeeList));
+
+    }
+
+    /**
+     * 对List<model> 中某一属性，进行处理（目前Integer类型可以，String类型不可以）
+     */
+    @Test
+    public void test003() {
+        List<Employee> collect = employees.stream().map(e -> e.setAge(e.getAge() + 100))
+                .collect(Collectors.toList());
+        System.out.println("去重：" + JsonUtil.toJson(collect));
+    }
+
+
+
+
 }

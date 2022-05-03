@@ -1,7 +1,7 @@
 package com.xubang.test;
 
 import com.alibaba.schedulerx.common.util.JsonUtil;
-import com.alibaba.schedulerx.shade.scala.Int;
+import com.alibaba.schedulerx.shade.org.apache.commons.lang.StringUtils;
 import com.xubang.model.Employee;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -45,4 +45,40 @@ public class Test_001 {
         String day = "2022-01-12 20:02:33";
         System.out.println(day.substring(0, 10));
     }
+
+    @Test
+    public void test_004() {
+        String str = "123,23,432,42,25,256,73";
+        Long ab = 123L;
+        Long cd = 999L;
+        if(StringUtils.contains(str,ab.toString())){
+            String s = StringUtils.replaceChars(str, ab.toString(), cd.toString());
+            System.out.println(s);
+        }
+        System.out.println(str);
+    }
+
+
+
+    /**
+     * 字符串拼接
+     * @param oldUserId
+     * @param userIdList
+     * @return
+     */
+    private String contactString(Long oldUserId, List<Long> userIdList) {
+        //TODO:封装一个处理方法（全能的，后续自己用）
+        String relationUserNew = "";
+        for (Long userIdN : userIdList) {
+            if (userIdN.equals(oldUserId)) {
+                continue;
+            }
+            relationUserNew +=userIdN.toString()+",";
+        }
+        if(relationUserNew.length()>0){
+            relationUserNew=relationUserNew.substring(0,relationUserNew.length()-1);
+        }
+        return relationUserNew;
+    }
+
 }

@@ -1,4 +1,4 @@
-import org.apache.commons.lang3.StringUtils;
+package string;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,8 +10,7 @@ import java.util.stream.Collectors;
  * @date 2022/4/10 9:02 AM
  * @Description String类型处理
  */
-public class StringDispose_002 {
-
+public class StringUtils {
 
     public static void main(String[] args) {
         String str = "1,2,3，4，25，31,30，100";
@@ -25,7 +24,7 @@ public class StringDispose_002 {
      * @return
      */
     private static List<Long> splitStringToList(String str) {
-        if (StringUtils.isEmpty(str)) {
+        if (org.apache.commons.lang3.StringUtils.isEmpty(str)) {
             return null;
         }
         //正则表达式：同时兼容中英文逗号
@@ -34,6 +33,5 @@ public class StringDispose_002 {
                 .map(s -> Long.parseLong(s.trim()))
                 .collect(Collectors.toList());
     }
-
 
 }
