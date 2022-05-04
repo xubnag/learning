@@ -72,7 +72,6 @@ public class GenericsBasic {
         genericsInterface.value=10;
         int i = genericsInterface.compareTo(100);
         System.out.println("泛型接口："+i);
-
     }
 
     /**∂
