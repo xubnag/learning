@@ -40,6 +40,15 @@ public class Test_001 {
         System.out.println(day.substring(0, 10));
     }
 
+
+    @Test
+    public void test_005() {
+        String str = "taskFile/03fc6f57-e2aa-4505-8101-291227a7b227lADPGpb_7ZvX6fLNAjLNAu4_750_562jpg_620x10000q90g.jpg";
+        int wait = str.indexOf("/");
+        System.out.println(str.substring(wait+1));
+
+    }
+
     @Test
     public void test_003() {
         String day = "2022-01-12 20:02:33";
@@ -51,7 +60,7 @@ public class Test_001 {
         String str = "123,23,432,42,25,256,73";
         Long ab = 123L;
         Long cd = 999L;
-        if(StringUtils.contains(str,ab.toString())){
+        if (StringUtils.contains(str, ab.toString())) {
             String s = StringUtils.replaceChars(str, ab.toString(), cd.toString());
             System.out.println(s);
         }
@@ -59,9 +68,9 @@ public class Test_001 {
     }
 
 
-
     /**
      * 字符串拼接
+     *
      * @param oldUserId
      * @param userIdList
      * @return
@@ -73,12 +82,19 @@ public class Test_001 {
             if (userIdN.equals(oldUserId)) {
                 continue;
             }
-            relationUserNew +=userIdN.toString()+",";
+            relationUserNew += userIdN.toString() + ",";
         }
-        if(relationUserNew.length()>0){
-            relationUserNew=relationUserNew.substring(0,relationUserNew.length()-1);
+        if (relationUserNew.length() > 0) {
+            relationUserNew = relationUserNew.substring(0, relationUserNew.length() - 1);
         }
         return relationUserNew;
+    }
+
+    @Test
+    public void test008(){
+        String str ="https://yungu-yuncai.oss-cn-hangzhou.aliyuncs.com/original/16527740156371086907347677246.1%E8%81%82%E5%B3%BB%E8%BE%B0-210101022.jpeg";
+        String substring = str.substring((str.indexOf("/") + 2), str.indexOf("."));
+        System.out.println(substring);
     }
 
 }

@@ -19,8 +19,6 @@ class LearningApplicationTests {
     void testStringToList() {
         String s = "[1,2,3]";
         String s1 = s.replaceFirst("[", " ");
-
-
     }
 
     @Test
@@ -32,5 +30,15 @@ class LearningApplicationTests {
         List<String> collect = Arrays.stream(substring.split(",")).collect(Collectors.toList());
         List<Integer> codesInteger = collect.stream().map(Integer::parseInt).collect(Collectors.toList());
         System.out.println(codesInteger);
+    }
+
+    @Test
+    void testh2() {
+      if(3>2){
+          System.out.println("hello");
+      }
+      if(2>=2){
+          System.out.println("2");
+      }
     }
 }

@@ -52,6 +52,5 @@ public class MapAcquaintanceFirst_001 {
             map.compute(animal, (k, v) -> v == null ? 1 : ++v);
         }
         System.out.println(map);
-
     }
 }

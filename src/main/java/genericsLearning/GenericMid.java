@@ -30,14 +30,14 @@ public class GenericMid {
         Integer max = max(arr);
         System.out.println("接口限定测试:" + max);
 
-        /**
-         * 3.类型参数的限定：上界为其他类型参数
-         */
-        DynamicArray<Number> numbers = new DynamicArray<>();
-        DynamicArray<Integer> ints = new DynamicArray<>();
-        ints.add(100);
-        ints.add(34);
-        numbers.addAll(ints);
+//        /**
+//         * 3.类型参数的限定：上界为其他类型参数
+//         */
+//        DynamicArray<Number> numbers = new DynamicArray<>();
+//        DynamicArray<Integer> ints = new DynamicArray<>();
+//        ints.add(100);
+//        ints.add(34);
+//        numbers.addAll(ints);
 
 
     }
@@ -88,33 +88,33 @@ class GenericBounds<U extends Number, V extends Number> extends Pair<U, V> {
     }
 
 
-    /**
-     * 类型参数的限定：上界为其他类型参数
-     * T:addAll的类型参数
-     * E:DynamicArray的类型参数
-     */
-    public <T extends E> void addAll(DynamicArray<T> c) {
-        for (int i = 0; i < c.size; i++) {
-            add(c.get(i));
-        }
-    }
-
-    /**
-     * 1）<T extends E>用于定义
-     * 类型参数，它声明了一个类型参数T，可放在泛型类定义中类名后面、泛型方法返回值前面。
-     * 2）<？extends E>用于实例化
-     * 类型参数，它用于实例化泛型变量中的类型参数，只是这个具体类型是未知的，只知道它是E或E的某个子类型。
-     */
-
-    /**
-     * 类型参数的限定：上界为其他类型参数：更为简单的形式
-     *
-     * @param c
-     */
-    public void addAllN(DynamicArray<? extends E> c) {
-        for (int i = 0; i < c.size; i++) {
-            add(c.get(i));
-        }
-    }
+//    /**
+//     * 类型参数的限定：上界为其他类型参数
+//     * T:addAll的类型参数
+//     * E:DynamicArray的类型参数
+//     */
+//    public <T extends E> void addAll(DynamicArray<T> c) {
+//        for (int i = 0; i < c.size; i++) {
+//            add(c.get(i));
+//        }
+//    }
+//
+//    /**
+//     * 1）<T extends E>用于定义
+//     * 类型参数，它声明了一个类型参数T，可放在泛型类定义中类名后面、泛型方法返回值前面。
+//     * 2）<？extends E>用于实例化
+//     * 类型参数，它用于实例化泛型变量中的类型参数，只是这个具体类型是未知的，只知道它是E或E的某个子类型。
+//     */
+//
+//    /**
+//     * 类型参数的限定：上界为其他类型参数：更为简单的形式
+//     *
+//     * @param c
+//     */
+//    public void addAllN(DynamicArray<? extends E> c) {
+//        for (int i = 0; i < c.size; i++) {
+//            add(c.get(i));
+//        }
+//    }
 
 }
